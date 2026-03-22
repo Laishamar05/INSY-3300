@@ -1,0 +1,17 @@
+#Question 3: Validate Product Quantity
+#Type: Function with parameters and return value
+#Business Context: Inventory system needs to validate product quantities before shipment.
+
+#Instructions: Write a function validate_quantity(quantity) that:
+#Takes an integer quantity as input.
+#Ensure the quantity is between 1 and 100.
+##If valid, return "Quantity accepted" (as a string).
+#If invalid, raise a ValueError with the message "Invalid quantity".
+
+def validate_quantity(quantity):
+    if quantity < 1 or quantity > 100:
+        raise ValueError ("Invalid quantity")
+    else:
+        return 'Quantity accepted'
+validate_quantity(101) #Error
+validate_quantity(50)

@@ -1,0 +1,25 @@
+#Question 1: Calculate Employee Bonus 
+#Type: Function with inputs and return value Business Context: HR department wants to automate bonus calculations.
+
+#Instructions: Write a function calculate_bonus(salary, performance_rating) that returns the bonus amount based on the following rules:
+#If performance_rating is 5, bonus is 20% of salary.
+#If performance_rating is 4, bonus is 10% of salary.
+#If performance_rating is 3, bonus is 5% of salary.
+#Otherwise, no bonus.
+#Use a loop to validate that performance_rating is between 1 and 5. If not, raise a ValueError
+
+def calculate_bonus(salary, performance_rating):
+    bonus = 0
+    if performance_rating < 1 or performance_rating > 5:
+        raise ValueError ("ERROR: The performance rating is not valid.")
+    else:
+        if performance_rating == 5:
+            bonus = 0.2
+        elif performance_rating == 4:
+            bonus = 0.1
+        elif performance_rating == 3:
+            bonus = 0.05
+        else:
+            bonus = 0
+    return (salary * bonus) + salary
+calculate_bonus(1000, 3)

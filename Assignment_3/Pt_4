@@ -1,0 +1,82 @@
+#Question 4 - Simple problems¶
+#This is worth 1 point.
+
+#Question 4.a: Sum of First N Natural Numbers
+#Ask the user to enter a number between 1 and 20. Using an appropriate loop, compute and print the sum of the natural numbers up to the user-entered value.
+
+#Example: If user enters 3. You should print 6, which is the value of (1 + 2 + 3) If user enters 4. You should print 8, which is the value of (1 + 2 + 3 + 4)
+
+num = int(input("Enter a number between 1 and 20: "))
+answ = 0
+while num > 0:
+    answ += num
+    num -= 1
+print(f"Answer: {answ}")
+
+#Question 4.b: Print Even Numbers Between 1 and 20¶
+#Using an appropriate loop, write python code to print all the even numbers between 1 and 20
+
+for i in range(2, 21, 2):
+    print(f"Number: {i}")
+
+#Question 4.c: Multiplication table
+
+# here is an example for an addition table that adds 1.
+
+num = 0
+print(f"--------------printing addition table for {num}--------------")
+for i in range(1, 11):
+    print(f"{num} + {i} = {num + i}")
+
+c = 0
+num = 1
+while c <= 9:
+    print(f"--------------printing addition table for {num}--------------")
+    for i in range(1, 11):
+        print(f"{num} * {i} = {num * i}")
+    c+=1
+    num+=1
+
+#Question 4.d.
+#Guess the outputs
+
+n = 5  # Guess the output before running the code - - [Infinite loop]
+while n >= 0: 
+    print(n**2)
+    n = n-1
+
+i = 1 # Guess the output before running the code - [2, 3, 4, 5, 6]
+while i <= 5:
+    i = i+1
+    print(i)
+
+running_total = 0
+orders = 0
+while orders < 5:
+    running_total += orders * 5
+    orders += 1
+
+    if running_total > 10:
+        break
+print(orders) # Guess the output before running the code - [3]
+
+for num in range(1,10,3): # Guess the output before running the code - [2,8,14,20]
+    print(num*2)
+
+for num in [1,10,3]: # Guess the output before running the code - [2, 20, 6]
+    print(num*2)
+
+cumulative_total = 0
+for j in range(10):
+    cumulative_total += j
+print(cumulative_total) # Guess the output before running the code - [46]
+
+sum_of_nums = 0
+for i in range(4):
+    for j in range(4):
+        if i > j:
+            #print(i,j) # Uncomment this line if needed to figure out what's going on.
+            sum_of_nums += j
+print(sum_of_nums) # Guess the output before running the code - [0]
+
+

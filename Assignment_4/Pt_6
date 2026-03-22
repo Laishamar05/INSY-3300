@@ -1,0 +1,42 @@
+#Question 6: Writing to a file 
+#The Fibonacci series is a sequence of numbers where each number is the sum of the two preceding ones, starting with 0 and 1. The series is 0, 1, 1, 2, 3, 5, 8, 13, and so on. The Fibonacci sequence is found in natural phenomena like the arrangement of petals on flowers and the spirals of sunflowers and pinecones, and it is mathematically linked to the golden ratio.
+
+#I have provided a recursive function that identifies nth fibonacci number.
+#Your task is to write first 25 fibonnacci numbers to a file.
+#Modify the function "print_fibonacci_to_file" that takes 'n' as input.
+
+#This function calls fibonacci_recursive to identify nth number in a series in a loop.
+#You NEED to write the content of variable nth_fibonacci to the file. Don't forget to convert int to str
+#You need to use the variable fibonacci_seq_file to write
+#Each number in the sequence should be in a new line
+#After implementation, print_fibonacci_to_file(25) should produce a file "Fibonacci.txt" with the following output
+
+def fibonacci_recursive(n):
+#This function generates nth Fibonacci number using recursion
+# n starts from zero
+    
+    if n <= 1:
+        return n
+    return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2)
+
+
+fibonacci_recursive(6)
+
+# Edit the below function
+def print_fibonacci_to_file(n):
+    if n < 1 or n > 100:
+        raise ValueError("Provide a number between 1 and 100")
+    # Opening the file
+    fibonacci_seq_file = open("Fibonacci.txt",'w')
+    
+    
+    for line_num in range(n):
+        nth_fibonacci = fibonacci_recursive(line_num)
+        # implement your code to write nth_fibonacci to a file. Don't forget to convert to str and add '\n'
+        fibonacci_seq_file.write(str(nth_fibonacci)+ "\n")
+    fibonacci_seq_file.close()
+    print("Printing Fibonacci sequence to file Fibonacci.txt")
+    return nth_fibonacci
+# call the print_fibonacci_to_file with input 25
+print_fibonacci_to_file(25)
+

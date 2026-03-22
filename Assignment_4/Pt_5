@@ -1,0 +1,89 @@
+#Question 5 - Calling functions¶
+
+#5.a Order of calling functions
+def print_business_name():
+    print('#####################')
+    print('Mavericks game store')
+    print('#####################')
+    
+def print_business_address():
+    print('700 UTA blvd, Arlington. Texas. 75019')
+    
+def print_business_hours():
+    print('Our business hours are:')
+    print('Monday to Friday: 9 AM to 7 PM')
+    print('Saturday: 10 AM to 5 PM')
+    print('Sunday: Closed')
+
+#Call the above three functions to print name of the business, followed by address and business hours
+
+print_business_name()
+print_business_address()
+print_business_hours()
+
+#5.b Understanding inputs to the functions
+#Call the function validate_inputs so that it produces the following output. Note you need to call the function five times. Each time you need to pass a different input to the function.
+
+#"Message 1: Both inputs are identical!"
+#"Message 2: The first input is greater than the second!"
+#"Message 3: The second input is greater than the first!"
+#"Message 4: Both inputs are text strings!"
+#"Message 5: Inputs are of mixed or special types!"
+
+def validate_inputs(input1, input2):
+    
+    # Convert inputs to numbers if they are numeric strings
+    try:
+        num1 = float(input1)
+        num2 = float(input2)
+        is_numeric = True
+    except (ValueError, TypeError):
+        is_numeric = False
+        num1 = num2 = 0
+    
+    # Message 1: Both inputs are equal
+    if input1 == input2:
+        print("Message 1: Both inputs are identical!")
+    
+    # Message 2: First input is greater (for numeric inputs)
+    elif is_numeric and num1 > num2:
+        print("Message 2: The first input is greater than the second!")
+    
+    # Message 3: Second input is greater (for numeric inputs)
+    elif is_numeric and num1 < num2:
+        print("Message 3: The second input is greater than the first!")
+    
+    # Message 4: Inputs are strings
+    elif type(input1)== str and type(input2) == str:
+        print("Message 4: Both inputs are text strings!")
+    
+    # Message 5: Default case
+    else:
+        print("Message 5: Inputs are of mixed or special types!")
+
+#5.c global and local variable
+#Guess the output of the following code before running it.
+
+# Global variable
+counter = 0
+name = "Global User"
+total = 100
+
+def scenario_1():
+    """Accessing global variable without modification"""
+    print(f"Counter value: {counter}")
+    print(f"Name: {name}")
+
+def scenario_2():
+    """Local variable with same name as global"""
+    counter = 50
+    name = "Local User"
+    print(f"Counter inside function: {counter}")
+    print(f"Name inside function: {name}")
+scenario_1() # Guess the outputs
+#Counter value: 0
+#Name: Global User
+scenario_2() # Guess the outputs
+#Counter inside function: 50
+#Name inside function: Local User
+

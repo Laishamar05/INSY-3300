@@ -1,0 +1,16 @@
+#Question 4: Display Business Hours
+
+#Type: Function with no input and prints a string
+#Business Context: Customer service chatbot needs to display business hours.
+#Instructions: Write a function get_business_hours() that prints the following string:
+
+################################
+#Our business hours are:
+#Monday to Friday: 9 AM to 5 PM
+#Saturday: 10 AM to 2 PM
+#Sunday: Closed
+################################
+
+def get_buisness_hours():
+    print("################################\nOur business hours are:\nMonday to Friday: 9 AM to 5 PM\nSaturday: 10 AM to 2 PM\nSunday: Closed\n################################")
+get_buisness_hours()

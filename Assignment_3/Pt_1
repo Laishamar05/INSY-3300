@@ -1,0 +1,81 @@
+#Question 1 - Rock, Paper, Scissors
+#This question is worth 1 point.
+
+#Write a program to play Race to N version of rock-paper-scissors.
+
+#Prompt the user to enter the number of points required to win the game. Validate whether the user has entered a number as input. Print the maximum points required to win the game and the rule "Whoever socres {N} points first wins the game."
+
+#Use while loop and repeat the game until N point is reached by user or computer. For example, if user entered 2, then game must be played until user or computer scores 2 points.
+
+#Print the scores of each player inside while loop and remind the rule the rule "Whoever socres {N} points first wins the game." Example: "User: 0, Computer: 0. Remember: Whoever reaches 2 points first wins the game", "Game 2 begins" etc.
+#Get user input (rock, paper or scissors)
+#Randomize computer input. You can use the code below or refer to code from previous lectures
+#Decide the outcome for each game.
+#Repeat until one of the player has reached the winning score entered by the user.
+#Print the overall winner with net scores.
+
+#import random
+
+#computer_choice = random.choice(["rock", "paper", "scissors"])
+
+#Rules for each game
+
+#rock beats scissors
+#scissors beats paper
+#paper beats rock
+#if both choose same option, the round is a tie.
+
+# Write your code here
+import random 
+
+N = int(input("What is the number of points to win the game?"))
+print(f"Whoever socres {N} points first wins the game.")
+
+user_score = 0
+computer_score = 0
+round_number = 1
+
+while user_score < N and computer_score < N:
+    print (f"Game {round_number}")
+    print(f"User: {user_score}, Computer: {computer_score}. First to {N} wins!")
+    
+    computer_choice = random.choice(["rock", "paper", "scissors"])
+    user_choice = input("Choose rock, paper, or scissors: ").lower()
+    
+    if user_choice == "rock" or user_choice == "paper" or user_choice == "scissors":
+        print(f"Computer chose: {computer_choice} and You chose: {user_choice}")
+        
+        if computer_choice == user_choice:
+            print("This round ended in a tie.")
+        else:
+            if user_choice == "rock" and computer_choice == "scissors":
+                user_score += 1
+                print("You won this round")
+                
+            elif user_choice == "paper" and computer_choice == "rock":
+                user_score += 1
+                print("You won this round")
+                
+            elif user_choice == "scissors" and computer_choice == "paper":
+                user_score += 1
+                print("You won this round")
+                
+            else:
+                print("Computer won this round")
+                computer_score += 1
+        round_number += 1
+        # Implement your code to determine winner. 
+    else:
+        print("Invalid input. Please try again.")
+    
+        # Implement your code to determine winner. 
+        
+print ("Scores:")
+print(f"----> User: {user_score}")
+print(f"----> Computer: {computer_score}")
+
+if user_score > computer_score:
+    print("Congrats! You won!")
+else:
+    print("Sorry! The computer won!")
+    

@@ -1,0 +1,96 @@
+#Question 2 - Rock, Paper, Scissors (Extended)
+#This question is worth 1 point.
+
+#Write a program to play Race to N or best of N version of rock-paper-scissors based on user input.
+
+#Prompt the user to enter the type of Rock, paper, scissors game.
+#User may enter only "A" or "B". Validate the input.
+#If the user enters "A", play Race to N version of the game. Otherwise, play best of N version of the game
+#You can reuse you code from In-class activities, Code buddy session, and question 1 inside the if-else decision structures.
+
+# Write your code here
+
+m = input("Type 'A' for a race to N or 'B' for Best of N: ")
+N = int(input("Enter the value for N: "))
+
+user_score = 0
+computer_score = 0
+round_number = 1
+
+if m == "A":
+    print(f"Mode: Race to {N}. Whoever scores {N} points wins!")
+
+    while user_score < N and computer_score < N:
+        print(f"Game {round_number}")
+        print(f"User: {user_score}, Computer: {computer_score}. First to {N} wins!")
+
+        computer_choice = random.choice(["rock", "paper", "scissors"])
+        user_choice = input("Choose rock, paper, or scissors: ").lower()
+        
+        if user_choice == "rock" or user_choice == "paper" or user_choice == "scissors":
+            print(f"Computer chose: {computer_choice} and You chose: {user_choice}")
+            
+            if computer_choice == user_choice:
+                print("This round ended in a tie.")
+            else:
+                if user_choice == "rock" and computer_choice == "scissors":
+                    user_score += 1
+                    print("You won this round")
+                    
+                elif user_choice == "paper" and computer_choice == "rock":
+                    user_score += 1
+                    print("You won this round")
+                    
+                elif user_choice == "scissors" and computer_choice == "paper":
+                    user_score += 1
+                    print("You won this round")
+                    
+                else:
+                    print("Computer won this round")
+                    computer_score += 1
+            round_number += 1
+        else:
+            print("Invalid input. Please try again.")
+else:
+    print(f"Mode: Race to {N}. Whoever scores {N} points wins!")
+
+    while round_number <= N:
+        print(f"Round {round_number} of {N}")
+        print(f"User: {user_score}, Computer: {computer_score}.")
+
+        computer_choice = random.choice(["rock", "paper", "scissors"])
+        user_choice = input("Choose rock, paper, or scissors: ").lower()
+
+        if user_choice == "rock" or user_choice == "paper" or user_choice == "scissors":
+            print(f"Computer chose: {computer_choice} and You chose: {user_choice}")
+            
+            if computer_choice == user_choice:
+                print("This round ended in a tie.")
+            else:
+                if user_choice == "rock" and computer_choice == "scissors":
+                    user_score += 1
+                    print("You won this round")
+                    
+                elif user_choice == "paper" and computer_choice == "rock":
+                    user_score += 1
+                    print("You won this round")
+                    
+                elif user_choice == "scissors" and computer_choice == "paper":
+                    user_score += 1
+                    print("You won this round")
+                    
+                else:
+                    print("Computer won this round")
+                    computer_score += 1
+            round_number += 1
+        else:
+            print("Invalid input. Please try again")
+            
+print(f"Final Score----> User: {user_score} ----> Computer: {computer_score}")
+
+if user_score > computer_score:
+    print("Congratulations! You won the game.")
+elif user_score < computer_score:
+    print("Sorry! You lost the game.")
+else:
+    print("The game resulted in a tie.")

@@ -1,0 +1,140 @@
+#Question 3 - Loan Amortization Schedule
+#This question is worth 1 points.
+
+#You are running a business that provides low-interest loans to small business. You need to generate a simple monthly payment schedule for the loan term.
+
+#Steps:
+
+#Prompt the user to enter the loan amount requested until the following condition is met.
+#Validate that the entered loan amount is between $$1,000 and $20,000.
+#Prompt the user to enter the term of the loan. Validate this number is an integer between 3 and 36 months.
+#Display the Amortization schedule for repayment based on the number of months chosen by the user. Refer to expected output in the cells below. Also see hints below and https://en.wikipedia.org/wiki/Amortization_calculator
+#Prompt the user and check "Would you like to proceed with the above loan?[Y/N]". Repeat from step 1 until the user selects "Y".
+#Assume the interest rate is 2% per year when the loan term is between 3 and 12 months, 3% per year when the loan term is between 13 and 24 months, and 4% per year when the loan term is above 24 months.
+#Finally, print "Thank you for lending with us. Good luck!"
+#Hints for generating amortization schedule:
+
+#number_of_months and principal # receive as input from the user.
+#assign interest_rate based on the number_of_months [Don't forget to convert percentage to fraction]
+#compute monthly_interest_rate as interest_rate/12
+#Calculate Monthly Payment: monthly_payment = (principal * monthly_interest_rate * (1 + monthly_interest_rate)**number_of_months)/(((1 + monthly_interest_rate)**number_of_months)-1)
+#Calculate Total Repayment: total_repayment = monthly_payment * number_of_months
+#For each month:
+#Calculate the monthly interest: interest_paid_this_month = remaining_principal * monthly_interest_rate. Note that the initial value of the variable remaining_principal is the principal, and in subsequent months you need to reduce the principal paid.
+
+#Calculate the principal paid: principal_paid_this_month = monthly_payment - interest_paid_this_month.
+
+#Update the balance: remaining_principal = remaining_principal - principal_paid_this_month.
+
+#For each month print the month number, interest paid, principal paid, and remaining balance.
+
+#See below for example outputs.
+
+#You need to provide the output for four scenarios:
+
+#A loan $1,000 for two months. Re-enter a valid loan term and complete the run.
+#A loan of $5,000 for 4 months
+#A loan of $20,000 for 12 months
+#A loan of $25,000. Re-enter any valid loan amount and term and complete the run.
+
+
+## Expected Output for a loan of $10,000 over 3 months
+#Enter the amount of loan requested (1K-20K): $ 10000
+#Enter the loan term in months (3 to 36): 3
+#--------------------Loan Amortization Schedule--------------------
+#Month: 1, Amount paid: $3344.45,   Principal: $3327.78,   Interest: #$16.67,  Remaining Principal:$6672.22
+#Month: 2, Amount paid: $3344.45,   Principal: $3333.33,   Interest: $11.12,  Remaining Principal:$3338.89
+#Month: 3, Amount paid: $3344.45,   Principal: $3338.89,   Interest: $5.56,  Remaining Principal:$0.00
+#--------------------Loan Amortization Schedule--------------------
+#The total repayment over 3 months is 10033.35
+#Would you like to proceed with the above loan?[Y/N] Y
+#Thank you for lending with us. Good luck!
+
+## Expected Output for a loan of $15,000 over 3 months is rejected by user, then accepted over 6 months
+#Enter the amount of loan requested (1K-20K): $ 15000
+#Enter the loan term in months (3 to 36): 3
+#--------------------Loan Amortization Schedule--------------------
+#Month: 1, Amount paid: $5016.68,   Principal: $4991.68,   Interest: $25.00,  Remaining Principal:$10008.32
+#Month: 2, Amount paid: $5016.68,   Principal: $5000.00,   Interest: $16.68,  Remaining Principal:$5008.33
+#Month: 3, Amount paid: $5016.68,   Principal: $5008.33,   Interest: $8.35,  Remaining Principal:$0.00
+#--------------------Loan Amortization Schedule--------------------
+#The total repayment over 3 months is 15050.03
+#Would you like to proceed with the above loan?[Y/N] N
+#Enter the amount of loan requested: $ 15000
+#Enter the loan term in months (3 to 36): 6
+#--------------------Loan Amortization Schedule--------------------
+#Month: 1, Amount paid: $2514.60,   Principal: $2489.60,   Interest: $25.00,  Remaining Principal:$12510.40
+#Month: 2, Amount paid: $2514.60,   Principal: $2493.75,   Interest: $20.85,  Remaining Principal:$10016.64
+#Month: 3, Amount paid: $2514.60,   Principal: $2497.91,   Interest: $16.69,  Remaining Principal:$7518.73
+#Month: 4, Amount paid: $2514.60,   Principal: $2502.07,   Interest: $12.53,  Remaining Principal:$5016.66
+#Month: 5, Amount paid: $2514.60,   Principal: $2506.24,   Interest: $8.36,  Remaining Principal:$2510.42
+#Month: 6, Amount paid: $2514.60,   Principal: $2510.42,   Interest: $4.18,  Remaining Principal:$0.00
+#--------------------Loan Amortization Schedule--------------------
+#The total repayment over 6 months is 15087.62
+#Would you like to proceed with the above loan?[Y/N] Y
+#Thank you for lending with us. Good luck!
+
+## Implement your code here.
+import math
+
+user_accepted_loan = False
+
+while not user_accepted_loan:
+
+    valid_principal = False
+
+    while not valid_principal:
+        principal = float(input("Enter the amount of loan requested (1K-20K): $")) # validate this
+        
+        if 1000 <= principal <=  20000: # Use this if to check if principal is between 1000 and 20000
+            valid_principal = True
+        else:
+            print("Please enter valid ammount between 1000 and 20000.")
+        
+
+    # Validate number of months using another while
+    valid_months = False
+    while not valid_months:
+        months = int(input("Enter the loan term in months (3 to 36): "))
+        if 3 <= months <= 36:
+            valid_months = True
+        else: 
+            print("Please enter valid term between 3 and 36 months.")
+            
+    # Implement remaining code
+    if 3 <= months <= 12:
+        annual_rate = 0.02
+    elif 13 <= months <= 24:
+        annual_rate = 0.03
+    else:
+        annual_rate = 0.04
+
+    monthly_interest_rate = annual_rate / 12
+    monthly_payment = (principal * monthly_interest_rate * (1 + monthly_interest_rate)**months) / \
+                  ((1 + monthly_interest_rate)**months - 1)
+    total_repayment = monthly_payment * months
+    
+    print("-"*20 + "Loan Amortization Schedule" + "-" * 20)
+
+    remaining_principal = principal
+    # Implement a for loop here
+
+    for month in range(1, months + 1):
+        interest_paid = remaining_principal * monthly_interest_rate
+        principal_paid = monthly_payment - interest_paid
+        remaining_principal -= principal_paid
+
+        print(f"Month: {month}, Amount paid: ${monthly_payment: 0.2f}, Principal: ${principal_paid: 0.2f}, Interest: ${interest_paid:0.2f}, Remaining Principal: ${remaining_principal:0.2f}")
+    
+    print("-"*20 + "Loan Amortization Schedule" + "-" * 20)
+    print(f"The total repayment over {months} months is {total_repayment:0.2f}")
+    
+
+    # don't forget to implement code to change user_accepted_loan to True when user selects 'Y'
+    proceed = input("Would you like to proceed with the above loan? [Y/N]: ").upper()
+    if proceed == 'Y':
+        user_accepted_loan = True # this needs to go inside an if
+    else:
+        print("Restarting application...")
+        
+print("Thank you for lending with us. Good luck!")

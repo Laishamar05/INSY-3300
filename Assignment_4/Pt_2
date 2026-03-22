@@ -1,0 +1,25 @@
+#Question 2: Calculate Overtime Pay
+
+#Type: Function with parameters and return value
+#Business Context: Payroll system needs to compute overtime compensation.
+
+#Instructions: Write a function overtime_pay(hours_worked, hourly_rate) that returns the total pay including overtime.
+#Regular hours = 40 hours per week.
+#Overtime is paid at 1.5× the hourly rate.
+#If hours_worked ≤ 40, pay is hours_worked × hourly_rate.
+#If hours_worked > 40, pay is:
+#Regular pay for 40 hours
+#Plus overtime pay for extra hours
+#Use a loop to validate that hours_worked is non-negative. Raise a ValueError if it's negative.
+
+def overtime_pay(hours_worked, hourly_rate):
+    Toatal_pay = 0
+    if hours_worked < 0:
+        raise ValueError("Error: Hours worked cannot be negative.")
+    else:
+        if hours_worked > 40:
+            Total_pay = ((hours_worked - 40) * (1.5 * hourly_rate)) + (40 * hourly_rate)
+        else:
+            Total_pay = hours_worked * hourly_rate
+    return Total_pay
+overtime_pay(42, 10)

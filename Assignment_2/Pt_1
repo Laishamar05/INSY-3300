@@ -1,0 +1,18 @@
+#**Task**:
+
+#- Ask the user to input the Total Revenue.
+#- Ask the user to input the Total Costs.
+#- Calculate the Net Profit (Revenue - Costs).
+#Write an if statement: If the Net Profit is greater than 0, print "The project is profitable."
+#Write an else statement: If not, print "The project resulted in a loss or broke even."
+
+# Code for question 1
+tRevenue = int(input("Enter Total Revenue: "))
+tCost = int(input("Enter Total Cost: "))
+
+netProfit = tRevenue - tCost
+if netProfit > 0:
+    print("The project is profitable.")
+else:
+    print("The project resulted in a loss or broke even.")
+    

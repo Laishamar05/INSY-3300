@@ -1,0 +1,15 @@
+#**Task**:
+
+#- Ask the user for the Current Inventory Count (as an integer).
+#- Ask the user for the Minimum Reorder Point (the threshold to reorder).
+#- If the current inventory is less than or equal to the reorder point, print: "Alert: Reorder Stock Immediately."
+#- Otherwise, print: "Inventory levels are sufficient."
+
+# Code for Question 2
+cInventory = int(input("Enter Current Inventory Count(as integer): "))
+mReorder = int(input("Enter Minimum Reorder Point(the threshold to reorder): "))
+
+if cInventory >= mReorder:
+    print("Alert: Reorder Stock Immediately.")
+else:
+    print("Inventory levels are sufficient.")

@@ -1,0 +1,18 @@
+#**Scenario**: A bank needs a preliminary automated check for loan applicants based on their credit scores. 
+
+#**Task**:
+# - Ask the user for their Credit Score (0-850).
+# - Use the following logic:
+#        -- 720 or higher: Print "Status: Pre-Approved for Lowest Rate."
+#        -- 620 to 719: Print "Status: Approved for Standard Rate."
+#        -- Below 620: Print "Status: Application Denied - Score too low."
+
+# Code for Question 5
+cScore = int(input("Enter Credit Score: "))
+
+if cScore >= 720:
+    print("Status: Pre-Approved for Lowest Rate.")
+elif 620 <= cScore < 720:
+    print("Status: Approved for Standard Rate.")
+else:
+    print("Status: Application Denied - Score too low.")

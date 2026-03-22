@@ -1,0 +1,15 @@
+## Question 3: Corporate Login System (String Comparison) 
+#**Scenario**: An internal business tool is only accessible to employees with the role of "Admin". 
+#**Task**:
+
+#- Ask the user to input their Job Role.
+#- Convert the input to uppercase or lowercase to ensure case-insensitivity (e.g., "admin", "Admin", "ADMIN" should all work).
+#- If the role matches "ADMIN", print: "Access Granted: Welcome to the Management Portal."
+#- Else, print: "Access Restricted: User rights insufficient."
+
+# Code for Question 3
+jRole = input("Enter Job Role: ").lower()
+if jRole == "admin":
+    print("Access Granted: Welcome to the Management Portal.")
+else:
+    print("Access Restricted: User rights insufficient.")

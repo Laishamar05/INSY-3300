@@ -1,0 +1,20 @@
+## Question 6: Sales Commission Structure 
+#**Scenario:** Sales representatives earn a base salary plus commission, but the commission percentage changes based on whether they met their sales quota. 
+
+#**Task:**
+#- Ask for the employee's Total Sales for the month.
+#- Ask for the Sales Quota (the goal they needed to hit).
+#- If the Total Sales are greater than the Quota, They earn a 10% bonus commission on their total sales. Print: "Quota Met! Bonus Commission: $[Amount]"
+#- If the Total Sales are equal to or less than the Quota: They earn a standard 5% commission. Print: "Standard Commission: $[Amount]"
+
+# Code for Question 6
+tSales = float(input("Enter Total Sales for the month: "))
+sQuota = float(input("Enter Sales Quota: "))
+
+
+if tSales > sQuota:
+    Amount = (tSales * 0.10)
+    print(f"Quota Met! Bonus Commission: ${Amount:0.2f}")
+else:
+    Amount = (tSales * 0.05)
+    print(f"Standard Commission: ${Amount:0.2f}")

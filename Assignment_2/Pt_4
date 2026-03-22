@@ -1,0 +1,21 @@
+## Question 4: Customer Discount Tiers 
+#**Scenario:** Your e-commerce store offers automatic discounts based on the total purchase amount. 
+#**Task:**
+
+#- Ask the user for the Order Total.
+#- Determine the discount rate:
+#    - If the order is 1,000 or more, apply a 20% discount.
+#    - If the order is between 500 and 999.99, apply a 10% discount.
+#    - If the order is less than 500, apply 0% discount.
+#- Calculate the final price and print: "Your final price after discount is: $[Amount]"
+
+# Code for Question 4 
+oTotal = float(input("Enter Order Total: $"))
+
+if oTotal > 1000:
+    oTotal = oTotal - (oTotal * .20)
+elif 500 < oTotal < 999.99:
+    oTotal = oTotal - (oTotal * .10)
+else:
+    oTotal = oTotal
+    print(f"Your final price after discount is: ${oTotal:0.2f}")

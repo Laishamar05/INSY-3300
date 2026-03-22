@@ -1,0 +1,64 @@
+## Question 7: Guess the ouput(s) - 1 point
+#For each of the code snippet beow, guess the output before running the code.
+
+# a
+inventory = "100" 
+
+if inventory == 100:
+    print("Inventory matches system.")
+else:
+    print("Inventory mismatch.")
+
+# Your guess for 'a' - [Inventory matches system.]
+
+# b    
+is_bankrupt = "False" 
+
+if is_bankrupt:
+    print("Alert: Company is bankrupt.")
+else:
+    print("Company status: Healthy.")
+# Your guess for 'b' - [Alert: Company is bankrupt.]
+
+
+# c    
+job_role = "Intern"
+
+if job_role == "Manager" or "Director":
+    print("Access Granted")
+else:
+    print("Access Denied")
+# Your guess for 'c' - [Access Denied]
+
+
+# d    
+customer_spend = 1500
+
+if customer_spend > 500:
+    print("Silver Tier")
+elif customer_spend > 1000:
+    print("Gold Tier")
+else:
+    print("Standard Tier")
+    
+# Your guess for 'd' - [Gold Tier]
+
+
+# e  
+coupon_code = "DISCOUNT20"
+
+if coupon_code == "Discount20":
+    print("20% Off Applied")
+else:
+    print("Invalid Coupon")
+# Your guess for 'e' - [Invalid Coupon]
+
+
+# f
+profit = -5000
+
+if profit > 0:
+    print("We made money!")
+print("Generate Report")
+
+# Your guess for 'f' - [Generate Report]
